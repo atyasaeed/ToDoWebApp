@@ -1,0 +1,17 @@
+<h2>To Do</h2>
+<table class="table">
+  <thead>
+    <td>Id</td>
+    <td>Name</td>
+    <td>Description</td>
+    <td>Date</td>
+  </thead>
+  <tbody>
+    <tr class="table-active" *ngFor="let item of todos; index as i">
+      <td>{{ item.id }}</td>
+      <td>{{ item.task }}</td>
+      <td>{{ item.description }}</td>
+      <td>{{ item.date }}</td>
+    </tr>
+  </tbody>
+</table>
