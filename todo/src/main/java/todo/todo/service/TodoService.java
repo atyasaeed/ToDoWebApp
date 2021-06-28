@@ -6,12 +6,12 @@ import todo.todo.model.Todo;
 import todo.todo.repository.TodoRepository;
 
 import javax.transaction.Transactional;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
 @Service
-@Transactional
 public class TodoService {
     @Autowired
     private TodoRepository todoRepository;
@@ -28,7 +28,7 @@ public class TodoService {
 
     public Todo save(Todo todo) {
         try {
-            todo.setDate(new Date());
+            todo.setDate(LocalDate.now());
             return todoRepository.save(todo);
         } catch (Exception e) {
             e.printStackTrace();
