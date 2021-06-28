@@ -13,24 +13,24 @@ public class TodoController {
     @Autowired
     private TodoService todoService;
 
-    @GetMapping(name = "/finAll")
+    @GetMapping("/findAll")
     public List<Todo> findAll() {
 
         return todoService.findAll();
 
     }
 
-    @GetMapping(name = "/findBy/{id}")
+    @GetMapping( "/findBy/{id}")
     public Todo finById(@PathVariable("id") Integer id) {
         return todoService.findById(id);
     }
 
-    @PostMapping(name = "/save")
+    @PostMapping("/save")
     public Todo save(@RequestBody Todo todo) {
         return todoService.save(todo);
     }
 
-    @DeleteMapping(name = "/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public boolean deleteById(@PathVariable("id") Integer id) {
         return todoService.deleteById(id);
     }
