@@ -10,7 +10,9 @@ import todo.todo.service.TodoService;
 import java.util.List;
 
 @RestController
+@CrossOrigin("*")
 @RequestMapping("/todo")
+
 public class TodoController {
     @Autowired
     private TodoService todoService;

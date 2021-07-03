@@ -10,6 +10,7 @@ import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
+import java.util.PriorityQueue;
 
 @Service
 public class TodoService {
@@ -18,6 +19,7 @@ public class TodoService {
 
     public List<Todo> findAll() {
         try {
+
             return todoRepository.findAll();
         } catch (Exception e) {
             e.printStackTrace();
@@ -28,7 +30,7 @@ public class TodoService {
 
     public Todo save(Todo todo) {
         try {
-            todo.setDate(LocalDate.now());
+//            todo.setDate(LocalDate.now());
             return todoRepository.save(todo);
         } catch (Exception e) {
             e.printStackTrace();
