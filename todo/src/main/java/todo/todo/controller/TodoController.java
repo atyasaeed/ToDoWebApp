@@ -4,9 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.RequestEntity;
 import org.springframework.web.bind.annotation.*;
+import todo.todo.dto.ToDoDto;
+import todo.todo.maper.ToDoMapper;
 import todo.todo.model.Todo;
 import todo.todo.service.TodoService;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -16,11 +19,19 @@ import java.util.List;
 public class TodoController {
     @Autowired
     private TodoService todoService;
+    @Autowired
+    private ToDoMapper toDoMapper;
 
     @GetMapping("/findAll")
-    public List<Todo> findAll() {
+    public List<ToDoDto> findAll() {
+        List<ToDoDto> dtos = new ArrayList<>();
 
-        return todoService.findAll();
+        List<Todo> all = todoService.findAll();
+        return toDoMapper.toDto(all);
+//        all.forEach(i -> {
+//            dtos.add(toDoMapper.toDto(i));
+//        });
+
 
     }
 

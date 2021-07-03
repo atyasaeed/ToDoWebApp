@@ -10,5 +10,6 @@ public interface OrderMaper {
 //@Mapping(source = "orderId",target = "id")
 //@Mapping(source = "orderName",target = "name")
     OrderDto mapToDto(Order order);
+    Order mapToEntity(OrderDto order);
 
 }

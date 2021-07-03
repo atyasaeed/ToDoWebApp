@@ -3,11 +3,9 @@ package todo.todo.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import todo.todo.dto.ProductDto;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Date;
 
@@ -23,5 +21,7 @@ public class Todo {
     private LocalDate date;
     private String description;
     private boolean isDone;
+    @OneToOne
+    private Product product;
 
 }
